@@ -1,0 +1,114 @@
+/* === Reset & Base === */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: system-ui, sans-serif;
+  line-height: 1.6;
+  background: #f9f9f9;
+  color: #333;
+}
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+}
+img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 0.5rem;
+}
+
+/* === Headings === */
+h1, h2, h3 {
+  margin-bottom: 0.75rem;
+  font-weight: 600;
+}
+h1 {
+  font-size: 2rem;
+}
+h2 {
+  font-size: 1.5rem;
+  margin-top: 2rem;
+}
+h3 {
+  font-size: 1.25rem;
+}
+
+/* === Buttons / Links === */
+a {
+  display: inline-block;
+  margin-top: 1rem;
+  padding: 0.6rem 1.2rem;
+  text-decoration: none;
+  color: white;
+  background-color: #007aff;
+  border-radius: 0.4rem;
+  transition: background 0.2s ease-in-out;
+}
+a:hover {
+  background-color: #005ecb;
+}
+.secondary-cta {
+  background-color: #444;
+  margin-left: 1rem;
+}
+.secondary-cta:hover {
+  background-color: #222;
+}
+
+/* === Lists === */
+ul {
+  list-style: disc inside;
+  margin-top: 1rem;
+}
+
+/* === Grid for All Apps === */
+.app-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1rem;
+  margin-top: 1rem;
+}
+.app-card {
+  background: white;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+.app-card h3 {
+  margin-bottom: 0.5rem;
+}
+
+/* === Form === */
+form input,
+form textarea {
+  width: 100%;
+  padding: 0.6rem;
+  margin-top: 0.5rem;
+  margin-bottom: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 0.3rem;
+}
+form button {
+  background: #007aff;
+  color: white;
+  padding: 0.6rem 1.2rem;
+  border: none;
+  border-radius: 0.4rem;
+  cursor: pointer;
+}
+form button:hover {
+  background: #005ecb;
+}
+
+/* === Footer === */
+footer {
+  background: #eee;
+  text-align: center;
+  padding: 1rem;
+  font-size: 0.875rem;
+  margin-top: 2rem;
+}
