@@ -1,93 +1,279 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>My iOS App</title>
-  <link rel="stylesheet" href="styles.css"> <!-- You can replace with Tailwind or custom CSS later -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SubEraser - Manage your subscriptions</title>
+    
 </head>
 <body>
-
-  <!-- 🌟 FEATURED APP HERO -->
-  <header>
     <div class="container">
-      <h1>🌟 App of the Month: SubEraser</h1>
-      <p>Manage your subscriptions and take back control.</p>
-      </br>
-      <img width="150" alt="Image" src="https://github.com/user-attachments/assets/e85f7024-af89-4554-a2ff-afd39402f539" />
-      <img width="150"  alt="Image" src="https://github.com/user-attachments/assets/b13f809c-4f56-4aca-8a4f-676d9c0ca12b" />
-      <img width="150" alt="Image" src="https://github.com/user-attachments/assets/5720b40e-5262-46ef-9367-1d563e4951f5" />
-      <img width="150" alt="Image" src="https://github.com/user-attachments/assets/ca127206-b493-420d-82e3-9db3da8b0f7e" />
-      <img width="150" alt="Image" src="https://github.com/user-attachments/assets/4e09995f-d71b-43ba-9902-110a85367c4c" />
-      </br>
-      <a href="https://apps.apple.com/fr/app/suberaser/id6745708274" class="cta">Download on the App Store</a>
-      
-    </div>
-  </header>
+        <!-- Navigation -->
+        <nav class="nav">
+            <a href="#about" class="nav-item">About Me</a>
+            <a href="#contact" class="nav-item">Contact</a>
+        </nav>
 
-  <!-- ✅ KEY FEATURES -->
-  <!-- ✅ KEY FEATURES -->
-  <section id="features">
-    <div class="container">
-      <h2>Why SubEraser?</h2>
-      <ul>
-        <li>📷 Take a photo or pick one from your gallery — SubEraser extracts the important info for you.</li>
-        <li>💵 See exactly where your money goes</li>
-        <li>📊 Deep stats and focus history export</li>
-        <li>💡 Learn how to manage subscriptions better and reduce unnecessary spending.</li>
-        <li>🇺🇲 Available in 6 languages: English, French, Spanish, German, Italian, and Japanese.</li>
-      </ul>
-    </div>
-  </section>
-
-  <!-- 📚 ALL APPS GALLERY -->
-  <section id="all-apps">
-    <div class="container">
-      <h2>More iOS Tools</h2>
-      <div class="app-grid">
-        <div class="app-card">
-          <h3>MicroHabit</h3>
-          <p>Tiny habits, big impact.</p>
-          <a href="#">Being created</a>
+        <!-- Contenu principal -->
+        <div class="content">
+            <div class="app-label">My iOS App</div>
+            <h1 class="title">SubEraser</h1>
+            <p class="subtitle">Manage your subscriptions<br>and take back control.</p>
+            <a href="https://apps.apple.com/fr/app/suberaser/id6745708274" class="cta">Download on the App Store</a>
         </div>
-        <div class="app-card">
-          <h3>SnoozeSniper</h3>
-          <p>Train your brain to wake up on time.</p>
-          <a href="#">In the works</a>
+
+        <!-- Mockups de téléphones -->
+        <div class="phone-mockups">
+            <img src="https://github.com/user-attachments/assets/2eb751af-f5e3-49e6-8de0-5e838b658c23"
+                 alt="SubEraser App Screenshots">
         </div>
-        <!-- Add more cards -->
+    </div>
+
+
+  <!-- Carousel -->
+      <div class="carousel-container">
+          <div class="carousel-wrapper">
+              <!-- Container des slides -->
+              <div class="carousel-slides" id="carouselSlides">
+                  <div class="carousel-slide slide-1">
+                      <div class="slide-content">
+                          <div class="slide-text">
+                              <h2>Add a subscription</h2>
+                              <p>Create a list with billing dates and costs</p>
+                              <a href="https://apps.apple.com/fr/app/suberaser/id6745708274" class="slide-cta">Download on the App Store</a>
+                          </div>
+                          <div class="slide-image">
+                              <img alt="Image" src="https://github.com/user-attachments/assets/e85f7024-af89-4554-a2ff-afd39402f539" />
+                          </div>
+                      </div>
+                  </div>
+                  <div class="carousel-slide slide-2">
+                                     <div class="slide-content">
+                                         <div class="slide-text">
+                                             <h2>Take a photo or pick one from your gallery</h2>
+                                             <p>SubEraser extracts the important info for you.</p>
+                                             <a href="https://apps.apple.com/fr/app/suberaser/id6745708274" class="slide-cta">Download on the App Store</a>
+                                         </div>
+                                         <div class="slide-image">
+                                             <img alt="Image" src="https://github.com/user-attachments/assets/5720b40e-5262-46ef-9367-1d563e4951f5" />
+                                         </div>
+                                     </div>
+                  </div>
+                  <div class="carousel-slide slide-3">
+                      <div class="slide-content">
+                          <div class="slide-text">
+                              <h2>See exactly where your money goes</h2>
+                              <p></p>
+                              <a href="https://apps.apple.com/fr/app/suberaser/id6745708274" class="slide-cta">Download on the App Store</a>
+                          </div>
+                          <div class="slide-image">
+                              <img alt="Image" src="https://github.com/user-attachments/assets/b13f809c-4f56-4aca-8a4f-676d9c0ca12b" />
+                          </div>
+                      </div>
+                  </div>
+                  <div class="carousel-slide slide-4">
+                      <div class="slide-content">
+                          <div class="slide-text">
+                              <h2>Check the calendar</h2>
+                              <p>To see upcoming billing dates</p>
+                              <a href="https://apps.apple.com/fr/app/suberaser/id6745708274" class="slide-cta">Download on the App Store</a>
+                          </div>
+                          <div class="slide-image">
+                              <img alt="Image" src="https://github.com/user-attachments/assets/ca127206-b493-420d-82e3-9db3da8b0f7e" />
+                          </div>
+                      </div>
+                  </div>
+                  <div class="carousel-slide slide-5">
+                      <div class="slide-content">
+                          <div class="slide-text">
+                              <h2>Available in 6 languages</h2>
+                              <p>English, French, Spanish, German, Italian, and Japanese</p>
+                              <a href="https://apps.apple.com/fr/app/suberaser/id6745708274" class="slide-cta">Download on the App Store</a>
+                          </div>
+                          <div class="slide-image">
+                              <img alt="Image" src="https://github.com/user-attachments/assets/926dc4c5-2703-4ddf-a0b1-febaeaff0b9b" />
+                          </div>
+                      </div>
+                  </div>
+                  <div class="carousel-slide slide-6">
+                      <div class="slide-content">
+                          <div class="slide-text">
+                              <h2>Reduce unnecessary spending.</h2>
+                              <p>With tips to better manage subscriptions</p>
+                              <a href="https://apps.apple.com/fr/app/suberaser/id6745708274" class="slide-cta">Download on the App Store</a>
+                          </div>
+                          <div class="slide-image">
+                              <img alt="Image" src="https://github.com/user-attachments/assets/4e09995f-d71b-43ba-9902-110a85367c4c" />
+                          </div>
+                      </div>
+                  </div>
+              </div>
+
+              <!-- Flèches de navigation -->
+              <button class="carousel-arrow prev" onclick="prevSlide()">‹</button>
+              <button class="carousel-arrow next" onclick="nextSlide()">›</button>
+
+              <!-- Indicateurs -->
+              <div class="carousel-indicators" id="indicators">
+                  <div class="indicator active" onclick="goToSlide(0)"></div>
+                  <div class="indicator" onclick="goToSlide(1)"></div>
+                  <div class="indicator" onclick="goToSlide(2)"></div>
+                  <div class="indicator" onclick="goToSlide(3)"></div>
+                  <div class="indicator" onclick="goToSlide(4)"></div>
+                  <div class="indicator" onclick="goToSlide(5)"></div>
+              </div>
+
+              <!-- Bouton play/pause -->
+              <div class="carousel-controls">
+                  <button class="play-pause-btn" onclick="toggleAutoplay()" id="playPauseBtn">⏸️ Pause</button>
+              </div>
+          </div>
       </div>
-    </div>
-  </section>
 
-  <!-- 👤 ABOUT -->
-  <section id="about">
-    <div class="container">
-      <h2>About Me</h2>
-      <p>Hi, I'm Cedrik — indie iOS developer building tools to help people win the day. Every app I ship solves a real-life problem with elegance and simplicity.</p>
-    </div>
-  </section>
+      <script>
+          let currentSlide = 0;
+          const totalSlides = 6;
+          let autoplayInterval;
+          let isPlaying = true;
+          
+          const slidesContainer = document.getElementById('carouselSlides');
+          const indicators = document.querySelectorAll('.indicator');
+          const playPauseBtn = document.getElementById('playPauseBtn');
 
-  <!-- 📬 CONTACT -->
-  <section id="contact">
-    <div class="container">
-      <h2>Contact</h2>
-      <p>Want to get in touch or suggest an idea?</p>
-      <form action="mailto:cedrikdevapple@gmail.com" method="POST">
-        <input type="text" name="name" placeholder="Your name" required />
-        <input type="email" name="email" placeholder="Your email" required />
-        <textarea name="message" placeholder="Your message here..." required></textarea>
-        <button type="submit">Send</button>
-      </form>
-    </div>
-  </section>
+          // Fonction pour aller à un slide spécifique
+          function goToSlide(index) {
+              currentSlide = index;
+              updateCarousel();
+          }
 
-  <!-- 🦶 FOOTER -->
-  <footer>
-    <div class="container">
-      <p>© 2025 MyiOSApp.com – Built with love in Swift & Ruby ⚙️</p>
-    </div>
-  </footer>
+          // Fonction pour le slide suivant
+          function nextSlide() {
+              currentSlide = (currentSlide + 1) % totalSlides;
+              updateCarousel();
+          }
+
+          // Fonction pour le slide précédent
+          function prevSlide() {
+              currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+              updateCarousel();
+          }
+
+          // Met à jour la position du carousel et les indicateurs
+          function updateCarousel() {
+              const translateX = -currentSlide * (100 / totalSlides);
+              slidesContainer.style.transform = `translateX(${translateX}%)`;
+              
+              // Met à jour les indicateurs
+              indicators.forEach((indicator, index) => {
+                  indicator.classList.toggle('active', index === currentSlide);
+              });
+          }
+
+          // Démarre l'autoplay
+          function startAutoplay() {
+              autoplayInterval = setInterval(() => {
+                  nextSlide();
+              }, 3000); // Change toutes les 3 secondes
+          }
+
+          // Arrête l'autoplay
+          function stopAutoplay() {
+              clearInterval(autoplayInterval);
+          }
+
+          // Toggle play/pause
+          function toggleAutoplay() {
+              if (isPlaying) {
+                  stopAutoplay();
+                  playPauseBtn.textContent = '▶️ Play';
+                  isPlaying = false;
+              } else {
+                  startAutoplay();
+                  playPauseBtn.textContent = '⏸️ Pause';
+                  isPlaying = true;
+              }
+          }
+
+          // Pause automatique au survol
+          const carouselContainer = document.querySelector('.carousel-container');
+          carouselContainer.addEventListener('mouseenter', () => {
+              if (isPlaying) stopAutoplay();
+          });
+
+          carouselContainer.addEventListener('mouseleave', () => {
+              if (isPlaying) startAutoplay();
+          });
+
+          // Support tactile pour mobile
+          let startX = 0;
+          let endX = 0;
+
+          carouselContainer.addEventListener('touchstart', (e) => {
+              startX = e.touches[0].clientX;
+          });
+
+          carouselContainer.addEventListener('touchend', (e) => {
+              endX = e.changedTouches[0].clientX;
+              handleSwipe();
+          });
+
+          function handleSwipe() {
+              const threshold = 50;
+              const diff = startX - endX;
+              
+              if (Math.abs(diff) > threshold) {
+                  if (diff > 0) {
+                      nextSlide();
+                  } else {
+                      prevSlide();
+                  }
+              }
+          }
+
+          // Démarre l'autoplay au chargement
+          startAutoplay();
+      </script>
+ 
+
+ <section id="about">
+         <div class="section-container">
+             <h2>About Me</h2>
+             <p>Hi, I'm Cedrik — indie iOS developer building tools to help people win the day. Every app I ship solves a real-life problem with elegance and simplicity.</p>
+         </div>
+     </section>
+
+     <!-- 📬 CONTACT -->
+     <section id="contact">
+         <div class="section-container">
+             <h2>Contact</h2>
+             <p>Want to get in touch or suggest an idea?</p>
+             </br>
+             <form class="contact-form" action="mailto:cedrikdevapple@gmail.com" method="POST">
+                 <div class="form-group">
+                     <input type="text" name="name" placeholder="Your name" required />
+                     <input type="email" name="email" placeholder="Your email" required />
+                 </div>
+                 <textarea name="message" placeholder="Your message here..." required></textarea>
+                 <button type="submit" class="submit-btn">Send Message</button>
+             </form>
+         </div>
+     </section>
+
+     <!-- 🦶 FOOTER -->
+     <footer>
+         <div class="section-container">
+             <div class="footer-links">
+                 <a href="#about" class="footer-link">About</a>
+                 <a href="#portfolio" class="footer-link">Portfolio</a>
+                 <a href="#contact" class="footer-link">Contact</a>
+                 <a href="#privacy" class="footer-link">Privacy</a>
+             </div>
+             <p>© 2025 MyiOSApp.com – Built with love in Swift & Ruby ⚙️</p>
+             <div class="footer-bottom">
+                 Made with passion for iOS development
+             </div>
+         </div>
+     </footer>
 
 </body>
 </html>

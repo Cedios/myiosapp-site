@@ -1,0 +1,1130 @@
+<style>
+    /* Barre de navigation */
+    .nav {
+        position: fixed;
+        top: 0;
+        right: 0;
+        display: flex;
+        gap: 20px;
+        padding: 15px 25px;
+        background: rgba(255, 255, 255, 0.8);
+        backdrop-filter: blur(8px);
+        border-bottom-left-radius: 12px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        z-index: 1000;
+    }
+
+    .nav-item {
+        text-decoration: none;
+        color: #333;
+        font-weight: 500;
+        transition: color 0.3s;
+    }
+
+    .nav-item:hover {
+        color: #007aff; /* Bleu iOS */
+    }
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        background-color: #a1c8ff;
+        min-height: 100vh;
+        overflow-x: hidden;
+    }
+
+    .container {
+        display: flex;
+        min-height: 100vh;
+        align-items: center;
+        position: relative;
+    }
+
+    .content {
+        flex: 1;
+        padding: 60px 80px;
+        max-width: 50%;
+        z-index: 2;
+    }
+
+    .app-label {
+        font-size: 24px;
+        color: rgba(255, 255, 255, 0.9);
+        margin-bottom: 20px;
+        font-weight: 300;
+    }
+
+    .title {
+        font-size: 120px;
+        font-weight: 900;
+        color: #2c5aa0;
+        line-height: 0.9;
+        margin-bottom: 40px;
+        text-shadow: 0 4px 20px rgba(44, 90, 160, 0.2);
+    }
+
+    .subtitle {
+        font-size: 32px;
+        color: #2c5aa0;
+        line-height: 1.3;
+        margin-bottom: 60px;
+        font-weight: 400;
+        opacity: 0.9;
+    }
+
+    .cta {
+        display: inline-block;
+        background: linear-gradient(135deg, #ff6b9d, #ffa1c8);
+        color: #2c5aa0;
+        padding: 20px 40px;
+        border-radius: 25px;
+        text-decoration: none;
+        font-size: 24px;
+        font-weight: 600;
+        transition: all 0.3s ease;
+        box-shadow: 0 8px 30px rgba(255, 161, 200, 0.4);
+    }
+
+    .cta:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 12px 40px rgba(255, 161, 200, 0.6);
+    }
+
+    .phone-mockups {
+        position: absolute;
+        right: 0;
+        top: 0;
+        width: 60%;
+        height: 100vh;
+        z-index: 1;
+    }
+
+    .phone-mockups img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: left center;
+    }
+    
+    .phone-mockups::after {
+                content: '';
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                height: 200px;
+                background: linear-gradient(to top, #a1c8ff 0%, transparent 100%);
+                pointer-events: none;
+                z-index: 2;
+            }
+
+
+    /* Carousel */
+    .carousel-container {
+                position: relative;
+                width: 100%;
+                max-width: 800px;
+                margin: 0 auto;
+                background: #fff;
+                border-radius: 20px;
+                overflow: hidden;
+                box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+            }
+
+            .carousel-wrapper {
+                position: relative;
+                width: 100%;
+                height: 500px;
+                overflow: hidden;
+            }
+
+            .carousel-slides {
+                display: flex;
+                width: 600%; /* 6 images = 600% */
+                height: 100%;
+                transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+            }
+
+            .carousel-slide {
+                flex: 1;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+                color: white;
+                font-size: 48px;
+                font-weight: bold;
+                text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+            }
+
+            .carousel-slide img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+
+    /* Flèches de navigation */
+            .carousel-arrow {
+                position: absolute;
+                bottom: 20px;
+                width: 40px;
+                height: 40px;
+                background: rgba(255, 255, 255, 0.2);
+                border: 1px solid rgba(255, 255, 255, 0.3);
+                border-radius: 50%;
+                cursor: pointer;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-size: 18px;
+                color: white;
+                transition: all 0.3s ease;
+                z-index: 10;
+                backdrop-filter: blur(10px);
+            }
+
+            .carousel-arrow:hover {
+                background: rgba(255, 255, 255, 0.4);
+                transform: scale(1.1);
+                border: 1px solid rgba(255, 255, 255, 0.5);
+            }
+
+            .carousel-arrow.prev {
+                left: 20px;
+            }
+
+            .carousel-arrow.next {
+                right: 20px;
+            }
+
+            /* Indicateurs repositionnés au centre */
+            .carousel-indicators {
+                position: absolute;
+                bottom: 20px;
+                left: 50%;
+                transform: translateX(-50%);
+                display: flex;
+                gap: 10px;
+                z-index: 10;
+            }
+
+            .indicator {
+                width: 12px;
+                height: 12px;
+                border-radius: 50%;
+                background: rgba(255, 255, 255, 0.5);
+                cursor: pointer;
+                transition: all 0.3s ease;
+            }
+
+            .indicator.active {
+                background: #fff;
+                transform: scale(1.2);
+            }
+
+            /* Bouton play/pause */
+            .carousel-controls {
+                position: absolute;
+                top: 20px;
+                right: 20px;
+                z-index: 10;
+            }
+
+            .play-pause-btn {
+                background: rgba(255, 255, 255, 0.9);
+                border: none;
+                border-radius: 25px;
+                padding: 10px 15px;
+                cursor: pointer;
+                font-size: 16px;
+                transition: all 0.3s ease;
+            }
+
+            .play-pause-btn:hover {
+                background: #fff;
+                transform: scale(1.05);
+            }
+
+    /* Styles pour le contenu des slides */
+            .slide-content {
+                display: flex;
+                width: 100%;
+                height: 100%;
+                align-items: center;
+                padding: 40px;
+                gap: 40px;
+            }
+
+            .slide-text {
+                flex: 1;
+                color: white;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+            }
+
+            .slide-text h2 {
+                font-size: 36px;
+                font-weight: bold;
+                margin-bottom: 20px;
+                text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+            }
+
+            .slide-text p {
+                font-size: 18px;
+                line-height: 1.6;
+                margin-bottom: 30px;
+                text-shadow: 0 1px 5px rgba(0, 0, 0, 0.2);
+            }
+
+            .slide-cta {
+                display: inline-block;
+                            background: rgba(255, 255, 255, 0.2);
+                            color: white;
+                            padding: 8px 16px;
+                            border-radius: 15px;
+                            text-decoration: none;
+                            font-weight: 600;
+                            font-size: 14px;
+                            transition: all 0.3s ease;
+                            backdrop-filter: blur(10px);
+                            border: 1px solid rgba(255, 255, 255, 0.3);
+                            align-self: flex-start;
+                            margin-top: 20px;
+            }
+
+            .slide-cta:hover {
+                background: rgba(255, 255, 255, 0.3);
+                transform: translateY(-2px);
+            }
+
+            .slide-image {
+                flex: 1;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height: 100%;
+                padding: 20px;
+            }
+
+            .slide-image img {
+                width: 100%;
+                height: 100%;
+                object-fit: contain;
+                border-radius: 15px;
+                box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+            }
+            /* Exemple de contenu pour les slides */
+            .slide-1 { background: linear-gradient(135deg, #a1c8ff 0%, #2d5aa0 100%); }
+            .slide-2 { background: linear-gradient(135deg, #ffa1c8 0%, #a1c8ff 100%); }
+            .slide-3 { background: linear-gradient(135deg, #2d5aa0 0%, #ffa1c8 100%); }
+            .slide-4 { background: linear-gradient(135deg, #a1c8ff 0%, #ffa1c8 100%); }
+            .slide-5 { background: linear-gradient(135deg, #ffa1c8 0%, #2d5aa0 100%); }
+            .slide-6 { background: linear-gradient(135deg, #2d5aa0 0%, #a1c8ff 100%); }
+    
+    .section-container {
+               max-width: 1200px;
+               margin: 0 auto;
+               padding: 0 20px;
+           }
+
+           /* ABOUT SECTION */
+           #about {
+               background: linear-gradient(135deg, #a1c8ff 0%, #ffa1c8 100%);
+               padding: 100px 0;
+               position: relative;
+           }
+
+           #about::before {
+               content: '';
+               position: absolute;
+               top: 0;
+               left: 0;
+               right: 0;
+               height: 100px;
+               background: linear-gradient(to bottom, #a1c8ff 0%, transparent 100%);
+           }
+
+           #about .section-container {
+               text-align: center;
+               max-width: 800px;
+           }
+
+           #about h2 {
+               font-size: 48px;
+               font-weight: 900;
+               color: #2d5aa0;
+               margin-bottom: 30px;
+               text-shadow: 0 2px 10px rgba(45, 90, 160, 0.2);
+           }
+
+           #about p {
+               font-size: 24px;
+               color: #2d5aa0;
+               line-height: 1.6;
+               text-shadow: 0 1px 3px rgba(45, 90, 160, 0.1);
+               opacity: 0.9;
+           }
+
+           /* CONTACT SECTION */
+           #contact {
+               background: linear-gradient(135deg, #2d5aa0 0%, #a1c8ff 100%);
+               padding: 100px 0;
+               color: white;
+           }
+
+           #contact .section-container {
+               max-width: 600px;
+               text-align: center;
+           }
+
+           #contact h2 {
+               font-size: 48px;
+               font-weight: 900;
+               margin-bottom: 20px;
+               text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+           }
+
+           #contact > .container > p {
+               font-size: 20px;
+               margin-bottom: 50px;
+               opacity: 0.9;
+           }
+
+           .contact-form {
+               display: flex;
+               flex-direction: column;
+               gap: 20px;
+           }
+
+           .form-group {
+               display: flex;
+               gap: 20px;
+           }
+
+           .form-group input {
+               flex: 1;
+           }
+
+           .contact-form input,
+           .contact-form textarea {
+               background: rgba(255, 255, 255, 0.1);
+               border: 2px solid rgba(255, 255, 255, 0.2);
+               border-radius: 15px;
+               padding: 16px 20px;
+               font-size: 16px;
+               color: white;
+               backdrop-filter: blur(10px);
+               transition: all 0.3s ease;
+           }
+
+           .contact-form input::placeholder,
+           .contact-form textarea::placeholder {
+               color: rgba(255, 255, 255, 0.7);
+           }
+
+           .contact-form input:focus,
+           .contact-form textarea:focus {
+               outline: none;
+               border-color: rgba(255, 255, 255, 0.5);
+               background: rgba(255, 255, 255, 0.15);
+           }
+
+           .contact-form textarea {
+               min-height: 120px;
+               resize: vertical;
+           }
+
+           .submit-btn {
+               background: linear-gradient(135deg, #ffa1c8, #ff6b9d);
+               border: none;
+               border-radius: 25px;
+               padding: 16px 40px;
+               font-size: 18px;
+               font-weight: 600;
+               color: #2d5aa0;
+               cursor: pointer;
+               transition: all 0.3s ease;
+               box-shadow: 0 8px 30px rgba(255, 161, 200, 0.3);
+               align-self: center;
+               min-width: 200px;
+           }
+
+           .submit-btn:hover {
+               transform: translateY(-3px);
+               box-shadow: 0 12px 40px rgba(255, 161, 200, 0.5);
+           }
+
+           /* FOOTER */
+           footer {
+               background: #2d5aa0;
+               padding: 60px 0;
+               text-align: center;
+               position: relative;
+           }
+
+           footer::before {
+               content: '';
+               position: absolute;
+               top: 0;
+               left: 0;
+               right: 0;
+               height: 1px;
+               background: linear-gradient(to right, transparent 0%, rgba(255, 255, 255, 0.2) 50%, transparent 100%);
+           }
+
+           footer .section-container {
+               max-width: 800px;
+           }
+
+           footer p {
+               font-size: 18px;
+               color: rgba(255, 255, 255, 0.8);
+               margin-bottom: 30px;
+           }
+
+           .footer-links {
+               display: flex;
+               justify-content: center;
+               gap: 40px;
+               margin-bottom: 30px;
+               flex-wrap: wrap;
+           }
+
+           .footer-link {
+               color: rgba(255, 255, 255, 0.9);
+               text-decoration: none;
+               font-weight: 500;
+               transition: all 0.3s ease;
+               position: relative;
+           }
+
+           .footer-link::after {
+               content: '';
+               position: absolute;
+               bottom: -5px;
+               left: 0;
+               right: 0;
+               height: 2px;
+               background: #ffa1c8;
+               transform: scaleX(0);
+               transition: transform 0.3s ease;
+           }
+
+           .footer-link:hover {
+               color: #ffa1c8;
+           }
+
+           .footer-link:hover::after {
+               transform: scaleX(1);
+           }
+
+           .footer-bottom {
+               font-size: 14px;
+               color: rgba(255, 255, 255, 0.6);
+               border-top: 1px solid rgba(255, 255, 255, 0.1);
+               padding-top: 20px;
+           }
+
+           /* RESPONSIVE */
+           @media (max-width: 768px) {
+               #about h2, #contact h2 {
+                   font-size: 36px;
+               }
+
+               #about p {
+                   font-size: 20px;
+               }
+
+               #contact > .container > p {
+                   font-size: 18px;
+               }
+
+               .form-group {
+                   flex-direction: column;
+                   gap: 20px;
+               }
+
+               .footer-links {
+                   flex-direction: column;
+                   gap: 20px;
+               }
+
+               #about, #contact {
+                   padding: 60px 0;
+               }
+    /* Navigation en haut à droite */
+    .nav {
+        position: absolute;
+        top: 30px;
+        left: 40px;
+        display: flex;
+        gap: 40px;
+        z-index: 3;
+    }
+
+    .nav-item {
+        color: #2c5aa0;
+        text-decoration: none;
+        font-size: 18px;
+        font-weight: 500;
+        transition: opacity 0.3s ease;
+    }
+
+    .nav-item:hover {
+        opacity: 0.7;
+    }
+
+    .logo {
+        width: 40px;
+        height: 40px;
+        background: linear-gradient(135deg, #ff9500, #ff6b00);
+        border-radius: 25%;
+        margin-right: 10px;
+    }
+
+    @media (max-width: 768px) {
+        .content {
+            max-width: 100%;
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        .title {
+            font-size: 60px;
+        }
+
+        .subtitle {
+            font-size: 24px;
+        }
+
+        .phone-mockups {
+            right: -200px;
+            opacity: 0.3;
+        }
+
+        .nav {
+            display: none;
+        }
+        /* ABOUT SECTION */
+        .section-container {
+                    max-width: 1200px;
+                    margin: 0 auto;
+                    padding: 0 20px;
+                }
+        
+                #about {
+                    background: linear-gradient(135deg, #a1c8ff 0%, #ffa1c8 100%);
+                    padding: 100px 0;
+                    position: relative;
+                }
+
+                #about::before {
+                    content: '';
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    right: 0;
+                    height: 100px;
+                    background: linear-gradient(to bottom, #a1c8ff 0%, transparent 100%);
+                }
+
+                #about .section-container {
+                    text-align: center;
+                    max-width: 800px;
+                }
+
+                #about h2 {
+                    font-size: 48px;
+                    font-weight: 900;
+                    color: #2d5aa0;
+                    margin-bottom: 30px;
+                    text-shadow: 0 2px 10px rgba(45, 90, 160, 0.2);
+                }
+
+                #about p {
+                    font-size: 24px;
+                    color: #2d5aa0;
+                    line-height: 1.6;
+                    text-shadow: 0 1px 3px rgba(45, 90, 160, 0.1);
+                    opacity: 0.9;
+                }
+
+                /* CONTACT SECTION */
+                #contact {
+                    background: linear-gradient(135deg, #2d5aa0 0%, #a1c8ff 100%);
+                    padding: 100px 0;
+                    color: white;
+                }
+
+                #contact .section-container {
+                    max-width: 600px;
+                    text-align: center;
+                }
+
+                #contact h2 {
+                    font-size: 48px;
+                    font-weight: 900;
+                    margin-bottom: 20px;
+                    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+                }
+
+                #contact > .container > p {
+                    font-size: 20px;
+                    margin-bottom: 50px;
+                    opacity: 0.9;
+                }
+
+                .contact-form {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 20px;
+                }
+
+                .form-group {
+                    display: flex;
+                    gap: 20px;
+                }
+
+                .form-group input {
+                    flex: 1;
+                }
+
+                .contact-form input,
+                .contact-form textarea {
+                    background: rgba(255, 255, 255, 0.1);
+                    border: 2px solid rgba(255, 255, 255, 0.2);
+                    border-radius: 15px;
+                    padding: 16px 20px;
+                    font-size: 16px;
+                    color: white;
+                    backdrop-filter: blur(10px);
+                    transition: all 0.3s ease;
+                }
+
+                .contact-form input::placeholder,
+                .contact-form textarea::placeholder {
+                    color: rgba(255, 255, 255, 0.7);
+                }
+
+                .contact-form input:focus,
+                .contact-form textarea:focus {
+                    outline: none;
+                    border-color: rgba(255, 255, 255, 0.5);
+                    background: rgba(255, 255, 255, 0.15);
+                }
+
+                .contact-form textarea {
+                    min-height: 120px;
+                    resize: vertical;
+                }
+
+                .submit-btn {
+                    background: linear-gradient(135deg, #ffa1c8, #ff6b9d);
+                    border: none;
+                    border-radius: 25px;
+                    padding: 16px 40px;
+                    font-size: 18px;
+                    font-weight: 600;
+                    color: #2d5aa0;
+                    cursor: pointer;
+                    transition: all 0.3s ease;
+                    box-shadow: 0 8px 30px rgba(255, 161, 200, 0.3);
+                    align-self: center;
+                    min-width: 200px;
+                }
+
+                .submit-btn:hover {
+                    transform: translateY(-3px);
+                    box-shadow: 0 12px 40px rgba(255, 161, 200, 0.5);
+                }
+
+                /* FOOTER */
+                footer {
+                    background: #2d5aa0;
+                    padding: 60px 0;
+                    text-align: center;
+                    position: relative;
+                }
+
+                footer::before {
+                    content: '';
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    right: 0;
+                    height: 1px;
+                    background: linear-gradient(to right, transparent 0%, rgba(255, 255, 255, 0.2) 50%, transparent 100%);
+                }
+
+                footer .section-container {
+                    max-width: 800px;
+                }
+
+                footer p {
+                    font-size: 18px;
+                    color: rgba(255, 255, 255, 0.8);
+                    margin-bottom: 30px;
+                }
+
+                .footer-links {
+                    display: flex;
+                    justify-content: center;
+                    gap: 40px;
+                    margin-bottom: 30px;
+                    flex-wrap: wrap;
+                }
+
+                .footer-link {
+                    color: rgba(255, 255, 255, 0.9);
+                    text-decoration: none;
+                    font-weight: 500;
+                    transition: all 0.3s ease;
+                    position: relative;
+                }
+
+                .footer-link::after {
+                    content: '';
+                    position: absolute;
+                    bottom: -5px;
+                    left: 0;
+                    right: 0;
+                    height: 2px;
+                    background: #ffa1c8;
+                    transform: scaleX(0);
+                    transition: transform 0.3s ease;
+                }
+
+                .footer-link:hover {
+                    color: #ffa1c8;
+                }
+
+                .footer-link:hover::after {
+                    transform: scaleX(1);
+                }
+
+                .footer-bottom {
+                    font-size: 14px;
+                    color: rgba(255, 255, 255, 0.6);
+                    border-top: 1px solid rgba(255, 255, 255, 0.1);
+                    padding-top: 20px;
+                }
+
+                /* RESPONSIVE */
+                @media (max-width: 768px) {
+                    #about h2, #contact h2 {
+                        font-size: 36px;
+                    }
+
+                    #about p {
+                        font-size: 20px;
+                    }
+
+                    #contact > .container > p {
+                        font-size: 18px;
+                    }
+
+                    .form-group {
+                        flex-direction: column;
+                        gap: 20px;
+                    }
+
+                    .footer-links {
+                        flex-direction: column;
+                        gap: 20px;
+                    }
+
+                    #about, #contact {
+                        padding: 60px 0;
+                    }
+                }
+    }
+</style>
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SubEraser - Manage your subscriptions</title>
+    
+</head>
+<body>
+    <div class="container">
+        <!-- Navigation -->
+        <nav class="nav">
+            <a href="#about" class="nav-item">About Me</a>
+            <a href="#contact" class="nav-item">Contact</a>
+        </nav>
+
+        <!-- Contenu principal -->
+        <div class="content">
+            <div class="app-label">My iOS App</div>
+            <h1 class="title">SubEraser</h1>
+            <p class="subtitle">Manage your subscriptions<br>and take back control.</p>
+            <a href="https://apps.apple.com/fr/app/suberaser/id6745708274" class="cta">Download on the App Store</a>
+        </div>
+
+        <!-- Mockups de téléphones -->
+        <div class="phone-mockups">
+            <img src="https://github.com/user-attachments/assets/2eb751af-f5e3-49e6-8de0-5e838b658c23"
+                 alt="SubEraser App Screenshots">
+        </div>
+    </div>
+
+
+  <!-- Carousel -->
+      <div class="carousel-container">
+          <div class="carousel-wrapper">
+              <!-- Container des slides -->
+              <div class="carousel-slides" id="carouselSlides">
+                  <div class="carousel-slide slide-1">
+                      <div class="slide-content">
+                          <div class="slide-text">
+                              <h2>Add a subscription</h2>
+                              <p>Create a list with billing dates and costs</p>
+                              <a href="https://apps.apple.com/fr/app/suberaser/id6745708274" class="slide-cta">Download on the App Store</a>
+                          </div>
+                          <div class="slide-image">
+                              <img alt="Image" src="https://github.com/user-attachments/assets/e85f7024-af89-4554-a2ff-afd39402f539" />
+                          </div>
+                      </div>
+                  </div>
+                  <div class="carousel-slide slide-2">
+                                     <div class="slide-content">
+                                         <div class="slide-text">
+                                             <h2>Take a photo or pick one from your gallery</h2>
+                                             <p>SubEraser extracts the important info for you.</p>
+                                             <a href="https://apps.apple.com/fr/app/suberaser/id6745708274" class="slide-cta">Download on the App Store</a>
+                                         </div>
+                                         <div class="slide-image">
+                                             <img alt="Image" src="https://github.com/user-attachments/assets/5720b40e-5262-46ef-9367-1d563e4951f5" />
+                                         </div>
+                                     </div>
+                  </div>
+                  <div class="carousel-slide slide-3">
+                      <div class="slide-content">
+                          <div class="slide-text">
+                              <h2>See exactly where your money goes</h2>
+                              <p></p>
+                              <a href="https://apps.apple.com/fr/app/suberaser/id6745708274" class="slide-cta">Download on the App Store</a>
+                          </div>
+                          <div class="slide-image">
+                              <img alt="Image" src="https://github.com/user-attachments/assets/b13f809c-4f56-4aca-8a4f-676d9c0ca12b" />
+                          </div>
+                      </div>
+                  </div>
+                  <div class="carousel-slide slide-4">
+                      <div class="slide-content">
+                          <div class="slide-text">
+                              <h2>Check the calendar</h2>
+                              <p>To see upcoming billing dates</p>
+                              <a href="https://apps.apple.com/fr/app/suberaser/id6745708274" class="slide-cta">Download on the App Store</a>
+                          </div>
+                          <div class="slide-image">
+                              <img alt="Image" src="https://github.com/user-attachments/assets/ca127206-b493-420d-82e3-9db3da8b0f7e" />
+                          </div>
+                      </div>
+                  </div>
+                  <div class="carousel-slide slide-5">
+                      <div class="slide-content">
+                          <div class="slide-text">
+                              <h2>Available in 6 languages</h2>
+                              <p>English, French, Spanish, German, Italian, and Japanese</p>
+                              <a href="https://apps.apple.com/fr/app/suberaser/id6745708274" class="slide-cta">Download on the App Store</a>
+                          </div>
+                          <div class="slide-image">
+                              <img alt="Image" src="https://github.com/user-attachments/assets/926dc4c5-2703-4ddf-a0b1-febaeaff0b9b" />
+                          </div>
+                      </div>
+                  </div>
+                  <div class="carousel-slide slide-6">
+                      <div class="slide-content">
+                          <div class="slide-text">
+                              <h2>Reduce unnecessary spending.</h2>
+                              <p>With tips to better manage subscriptions</p>
+                              <a href="https://apps.apple.com/fr/app/suberaser/id6745708274" class="slide-cta">Download on the App Store</a>
+                          </div>
+                          <div class="slide-image">
+                              <img alt="Image" src="https://github.com/user-attachments/assets/4e09995f-d71b-43ba-9902-110a85367c4c" />
+                          </div>
+                      </div>
+                  </div>
+              </div>
+
+              <!-- Flèches de navigation -->
+              <button class="carousel-arrow prev" onclick="prevSlide()">‹</button>
+              <button class="carousel-arrow next" onclick="nextSlide()">›</button>
+
+              <!-- Indicateurs -->
+              <div class="carousel-indicators" id="indicators">
+                  <div class="indicator active" onclick="goToSlide(0)"></div>
+                  <div class="indicator" onclick="goToSlide(1)"></div>
+                  <div class="indicator" onclick="goToSlide(2)"></div>
+                  <div class="indicator" onclick="goToSlide(3)"></div>
+                  <div class="indicator" onclick="goToSlide(4)"></div>
+                  <div class="indicator" onclick="goToSlide(5)"></div>
+              </div>
+
+              <!-- Bouton play/pause -->
+              <div class="carousel-controls">
+                  <button class="play-pause-btn" onclick="toggleAutoplay()" id="playPauseBtn">⏸️ Pause</button>
+              </div>
+          </div>
+      </div>
+
+      <script>
+          let currentSlide = 0;
+          const totalSlides = 6;
+          let autoplayInterval;
+          let isPlaying = true;
+          
+          const slidesContainer = document.getElementById('carouselSlides');
+          const indicators = document.querySelectorAll('.indicator');
+          const playPauseBtn = document.getElementById('playPauseBtn');
+
+          // Fonction pour aller à un slide spécifique
+          function goToSlide(index) {
+              currentSlide = index;
+              updateCarousel();
+          }
+
+          // Fonction pour le slide suivant
+          function nextSlide() {
+              currentSlide = (currentSlide + 1) % totalSlides;
+              updateCarousel();
+          }
+
+          // Fonction pour le slide précédent
+          function prevSlide() {
+              currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+              updateCarousel();
+          }
+
+          // Met à jour la position du carousel et les indicateurs
+          function updateCarousel() {
+              const translateX = -currentSlide * (100 / totalSlides);
+              slidesContainer.style.transform = `translateX(${translateX}%)`;
+              
+              // Met à jour les indicateurs
+              indicators.forEach((indicator, index) => {
+                  indicator.classList.toggle('active', index === currentSlide);
+              });
+          }
+
+          // Démarre l'autoplay
+          function startAutoplay() {
+              autoplayInterval = setInterval(() => {
+                  nextSlide();
+              }, 3000); // Change toutes les 3 secondes
+          }
+
+          // Arrête l'autoplay
+          function stopAutoplay() {
+              clearInterval(autoplayInterval);
+          }
+
+          // Toggle play/pause
+          function toggleAutoplay() {
+              if (isPlaying) {
+                  stopAutoplay();
+                  playPauseBtn.textContent = '▶️ Play';
+                  isPlaying = false;
+              } else {
+                  startAutoplay();
+                  playPauseBtn.textContent = '⏸️ Pause';
+                  isPlaying = true;
+              }
+          }
+
+          // Pause automatique au survol
+          const carouselContainer = document.querySelector('.carousel-container');
+          carouselContainer.addEventListener('mouseenter', () => {
+              if (isPlaying) stopAutoplay();
+          });
+
+          carouselContainer.addEventListener('mouseleave', () => {
+              if (isPlaying) startAutoplay();
+          });
+
+          // Support tactile pour mobile
+          let startX = 0;
+          let endX = 0;
+
+          carouselContainer.addEventListener('touchstart', (e) => {
+              startX = e.touches[0].clientX;
+          });
+
+          carouselContainer.addEventListener('touchend', (e) => {
+              endX = e.changedTouches[0].clientX;
+              handleSwipe();
+          });
+
+          function handleSwipe() {
+              const threshold = 50;
+              const diff = startX - endX;
+              
+              if (Math.abs(diff) > threshold) {
+                  if (diff > 0) {
+                      nextSlide();
+                  } else {
+                      prevSlide();
+                  }
+              }
+          }
+
+          // Démarre l'autoplay au chargement
+          startAutoplay();
+      </script>
+ 
+
+ <section id="about">
+         <div class="section-container">
+             <h2>About Me</h2>
+             <p>Hi, I'm Cedrik — indie iOS developer building tools to help people win the day. Every app I ship solves a real-life problem with elegance and simplicity.</p>
+         </div>
+     </section>
+
+     <!-- 📬 CONTACT -->
+     <section id="contact">
+         <div class="section-container">
+             <h2>Contact</h2>
+             <p>Want to get in touch or suggest an idea?</p>
+             </br>
+             <form class="contact-form" action="mailto:cedrikdevapple@gmail.com" method="POST">
+                 <div class="form-group">
+                     <input type="text" name="name" placeholder="Your name" required />
+                     <input type="email" name="email" placeholder="Your email" required />
+                 </div>
+                 <textarea name="message" placeholder="Your message here..." required></textarea>
+                 <button type="submit" class="submit-btn">Send Message</button>
+             </form>
+         </div>
+     </section>
+
+     <!-- 🦶 FOOTER -->
+     <footer>
+         <div class="section-container">
+             <div class="footer-links">
+                 <a href="#about" class="footer-link">About</a>
+                 <a href="#portfolio" class="footer-link">Portfolio</a>
+                 <a href="#contact" class="footer-link">Contact</a>
+                 <a href="#privacy" class="footer-link">Privacy</a>
+             </div>
+             <p>© 2025 MyiOSApp.com – Built with love in Swift & Ruby ⚙️</p>
+             <div class="footer-bottom">
+                 Made with passion for iOS development
+             </div>
+         </div>
+     </footer>
+
+</body>
+</html>
+
+
+
+
