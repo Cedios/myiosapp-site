@@ -315,10 +315,9 @@ body {
 
         .slide-image img {
             width: auto;
-            max-width: 50%
                 max-width: 100%; /* ajuste à ton design */
                 height: auto;
-                min-height: 100%;
+                min-height: 90%;
                 max-height: 100%; /* pour éviter les colonnes */
                 object-fit: contain; /* garde les proportions */
             border-radius: 15px;
