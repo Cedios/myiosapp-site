@@ -253,49 +253,81 @@ body {
             display: flex;
             width: 100%;
             height: 100%;
-            align-items: center;
+            align-items: stretch;
             padding: 40px;
             gap: 40px;
         }
 
         .slide-text {
-            flex: 0 0 35%; /* 35% de largeur fixe */
+            flex: 0 0 35%;
                 width: 35%;
                 max-width: 350px;
-            color: white;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
+                color: white;
+                display: flex;
+                flex-direction: column;
+                justify-content: flex-start; /* Alignement en haut */
+                
+                /* CONTRAINTES IMPORTANTES : */
+                height: 100%; /* Prend toute la hauteur disponible */
+                max-height: 100%; /* Ne dépasse jamais */
+                overflow: hidden; /* Cache tout débordement */
+                padding: 30px 20px;
+                
+                /* Espacement interne contrôlé */
+                box-sizing: border-box;
         }
 
         .slide-text h2 {
-            font-size: 36px;
-            font-weight: bold;
-            margin-bottom: 20px;
-            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+            font-size: 32px;
+                font-weight: bold;
+                margin-bottom: 20px;
+                text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+                line-height: 1.2;
+                
+                /* Limitation stricte du nombre de lignes */
+                display: -webkit-box;
+                -webkit-line-clamp: 3; /* Maximum 3 lignes */
+                -webkit-box-orient: vertical;
+                overflow: hidden;
+                
+                /* Hauteur fixe pour cohérence */
+                max-height: 115px; /* ~3 lignes à 32px + line-height */
         }
 
         .slide-text p {
             font-size: 18px;
-            line-height: 1.6;
-            margin-bottom: 30px;
-            text-shadow: 0 1px 5px rgba(0, 0, 0, 0.2);
+                line-height: 1.4;
+                margin-bottom: 25px;
+                text-shadow: 0 1px 5px rgba(0, 0, 0, 0.2);
+                
+                /* Limitation stricte du nombre de lignes */
+                display: -webkit-box;
+                -webkit-line-clamp: 4; /* Maximum 4 lignes */
+                -webkit-box-orient: vertical;
+                overflow: hidden;
+                
+                /* Hauteur fixe pour cohérence */
+                max-height: 100px; /* ~4 lignes à 18px + line-height */
         }
 
         .slide-cta {
             display: inline-block;
-                        background: rgba(255, 255, 255, 0.2);
-                        color: white;
-                        padding: 8px 16px;
-                        border-radius: 15px;
-                        text-decoration: none;
-                        font-weight: 600;
-                        font-size: 14px;
-                        transition: all 0.3s ease;
-                        backdrop-filter: blur(10px);
-                        border: 1px solid rgba(255, 255, 255, 0.3);
-                        align-self: flex-start;
-                        margin-top: 20px;
+                background: rgba(255, 255, 255, 0.2);
+                color: white;
+                padding: 12px 20px;
+                border-radius: 15px;
+                text-decoration: none;
+                font-weight: 600;
+                font-size: 14px;
+                transition: all 0.3s ease;
+                backdrop-filter: blur(10px);
+                border: 1px solid rgba(255, 255, 255, 0.3);
+                align-self: flex-start;
+                white-space: nowrap;
+                
+                /* Position dans le conteneur */
+                margin-top: auto; /* Pousse vers le bas */
+                flex-shrink: 0; /* Ne se réduit pas */
         }
 
         .slide-cta:hover {
@@ -594,6 +626,62 @@ body {
 }
 
 @media (max-width: 768px) {
+    .carousel-wrapper {
+            height: 500px; /* Hauteur fixe pour mobile */
+        }
+        
+        .slide-content {
+            flex-direction: column;
+            padding: 20px;
+            gap: 15px;
+            height: 100%;
+        }
+        
+        .slide-text {
+            flex: 0 0 180px; /* Hauteur FIXE pour le texte */
+            width: 100%;
+            height: 180px; /* Hauteur absolue */
+            max-height: 180px;
+            min-height: 180px;
+            order: 2;
+            text-align: center;
+            padding: 20px 15px;
+            overflow: hidden; /* CRUCIAL */
+            
+            /* Arrière-plan pour visualiser la zone (optionnel) */
+            /* background: rgba(255, 255, 255, 0.1); */
+            /* border-radius: 10px; */
+        }
+        
+        .slide-image {
+            flex: 1; /* Prend l'espace restant (~300px) */
+            width: 100%;
+            height: auto;
+            min-height: 280px;
+            order: 1;
+            padding: 10px 0;
+        }
+        
+        /* Ajustements de taille pour mobile */
+        .slide-text h2 {
+            font-size: 26px;
+            margin-bottom: 15px;
+            -webkit-line-clamp: 2; /* Maximum 2 lignes sur mobile */
+            max-height: 65px; /* ~2 lignes */
+        }
+        
+        .slide-text p {
+            font-size: 16px;
+            margin-bottom: 20px;
+            -webkit-line-clamp: 3; /* Maximum 3 lignes sur mobile */
+            max-height: 70px; /* ~3 lignes */
+        }
+        
+        .slide-cta {
+            font-size: 13px;
+            padding: 10px 16px;
+            margin-top: 10px;
+        }
     .content {
         max-width: 100%;
         padding: 40px 20px;
