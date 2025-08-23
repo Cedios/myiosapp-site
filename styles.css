@@ -270,6 +270,8 @@ body {
                 /* CONTRAINTES IMPORTANTES : */
                 height: 100%; /* Prend toute la hauteur disponible */
                 max-height: 100%; /* Ne dépasse jamais */
+                width: 100%; /* Prend toute la largeur disponible */
+                max-width: 100%; /* Ne dépasse jamais */
                 overflow: hidden; /* Cache tout débordement */
                 padding: 30px 20px;
                 
