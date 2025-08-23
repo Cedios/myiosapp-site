@@ -307,7 +307,7 @@ body {
                 display: -webkit-box;
                 -webkit-line-clamp: 4; /* Maximum 4 lignes */
                 -webkit-box-orient: vertical;
-                overflow: hidden;
+                overflow: visible;
                 
                 /* Hauteur fixe pour cohérence */
                 max-height: 120px; /* ~4 lignes à 18px + line-height */
