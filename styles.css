@@ -648,7 +648,7 @@ body {
             min-height: 160px;
             order: 2;
             text-align: center;
-            padding: 15px 10px;
+            padding: 12px 10px;
             overflow: visible; /* CRUCIAL */
             
             /* Arrière-plan pour visualiser la zone (optionnel) */
