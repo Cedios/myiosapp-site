@@ -319,7 +319,7 @@ body {
                 height: auto;
                 min-height: 90%;
                 max-height: 100%; /* pour éviter les colonnes */
-                object-fit: contain; /* garde les proportions */
+                object-fit: cover; /* garde les proportions */
             border-radius: 15px;
             box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
         }
