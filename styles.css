@@ -260,7 +260,7 @@ body {
 
         .slide-text {
             flex: 1;
-            min-width: 50%
+            width: 50%
             color: white;
             display: flex;
             flex-direction: column;
